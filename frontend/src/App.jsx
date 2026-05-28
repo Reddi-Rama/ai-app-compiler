@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
 
-    fetch("http://127.0.0.1:9001/evaluation-report")
+    fetch("https://ai-app-compiler-backend-zc2s.onrender.com1/evaluation-report")
       .then((res) => res.json())
       .then((data) => setMetrics(data))
       .catch((err) => console.error(err))
@@ -24,7 +24,7 @@ function App() {
     try {
 
       const response = await fetch(
-        "http://127.0.0.1:9001/generate-app",
+        "https://ai-app-compiler-backend-zc2s.onrender.com/generate-app",
         {
           method: "POST",
 
