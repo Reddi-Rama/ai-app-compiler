@@ -21,7 +21,13 @@ The system automatically generates:
 Designed as an AI systems engineering project, the platform focuses on reliability, modularity, validation, and autonomous pipeline orchestration.
 
 ---
+# Live Demo
 
+Frontend:
+https://ai-app-compiler-seven.vercel.app/
+
+Backend API:
+https://ai-app-compiler-backend-zc2s.onrender.com
 # Key Features
 
 ## AI Intent Extraction
