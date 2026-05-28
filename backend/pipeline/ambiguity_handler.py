@@ -1,34 +1,38 @@
 def detect_ambiguity(prompt):
     
-    vague_words = [
+    prompt = prompt.lower()
+
+    vague_keywords = [
         "platform",
         "app",
+        "software",
         "system",
-        "website",
-        "portal"
+        "website"
     ]
 
-    prompt_lower = prompt.lower()
-
     clarification_needed = False
-    questions = []
 
-    for word in vague_words:
+    for word in vague_keywords:
 
-        if prompt_lower.strip() == f"build a {word}" \
-        or prompt_lower.strip() == f"create a {word}" \
-        or prompt_lower.strip() == word:
+        if prompt.strip() in [
+            f"build a {word}",
+            f"create a {word}",
+            f"build {word}",
+            f"create {word}"
+        ]:
 
             clarification_needed = True
 
     if clarification_needed:
 
-        questions = [
-            "What type of system do you want to build?",
-            "What core features should the application include?"
-        ]
+        return {
+            "clarification_needed": True,
+            "questions": [
+                "What type of system do you want to build?",
+                "What core features should the application include?"
+            ]
+        }
 
     return {
-        "clarification_needed": clarification_needed,
-        "questions": questions
+        "clarification_needed": False
     }
