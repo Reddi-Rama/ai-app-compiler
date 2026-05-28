@@ -1,66 +1,34 @@
 def detect_ambiguity(prompt):
-
-    prompt = prompt.lower()
-
+    
     vague_words = [
-        "app",
         "platform",
+        "app",
         "system",
         "website",
-        "software"
+        "portal"
     ]
 
-    strong_keywords = [
-        "login",
-        "payment",
-        "dashboard",
-        "analytics",
-        "billing",
-        "records",
-        "chat",
-        "admin",
-        "tracking",
-        "delivery",
-        "crm",
-        "hospital",
-        "ecommerce",
-        "management",
-        "ai",
-        "subscription"
-    ]
+    prompt_lower = prompt.lower()
 
-    has_strong_context = any(
-        keyword in prompt
-        for keyword in strong_keywords
-    )
+    clarification_needed = False
+    questions = []
 
-    word_count = len(prompt.split())
+    for word in vague_words:
 
-    if word_count <= 2 and not has_strong_context:
+        if prompt_lower.strip() == f"build a {word}" \
+        or prompt_lower.strip() == f"create a {word}" \
+        or prompt_lower.strip() == word:
 
-        return {
-            "clarification_needed": True,
-            "questions": [
-                "What type of application do you want to build?",
-                "What core features should the application include?"
-            ]
-        }
+            clarification_needed = True
 
-    if (
-        any(word == prompt.strip() for word in vague_words)
-        and not has_strong_context
-    ):
+    if clarification_needed:
 
-        return {
-            "clarification_needed": True,
-            "questions": [
-                "Can you describe the application in more detail?",
-                "What main features should it contain?"
-            ]
-        }
+        questions = [
+            "What type of system do you want to build?",
+            "What core features should the application include?"
+        ]
 
     return {
-        "clarification_needed": False,
-        "questions": []
+        "clarification_needed": clarification_needed,
+        "questions": questions
     }
-
