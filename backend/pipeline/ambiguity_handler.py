@@ -1,37 +1,40 @@
 def detect_ambiguity(prompt):
     
-    prompt = prompt.lower()
+    prompt = prompt.lower().strip()
 
     vague_keywords = [
-        "platform",
         "app",
+        "platform",
         "software",
         "system",
         "website"
     ]
 
-    clarification_needed = False
+    vague_starters = [
+        "build",
+        "create",
+        "make",
+        "develop"
+    ]
 
-    for word in vague_keywords:
+    for starter in vague_starters:
 
-        if prompt.strip() in [
-            f"build a {word}",
-            f"create a {word}",
-            f"build {word}",
-            f"create {word}"
-        ]:
+        for keyword in vague_keywords:
 
-            clarification_needed = True
+            if starter in prompt and keyword in prompt:
 
-    if clarification_needed:
+                word_count = len(prompt.split())
 
-        return {
-            "clarification_needed": True,
-            "questions": [
-                "What type of system do you want to build?",
-                "What core features should the application include?"
-            ]
-        }
+                # Only trigger if prompt is too short/vague
+                if word_count <= 4:
+
+                    return {
+                        "clarification_needed": True,
+                        "questions": [
+                            "What type of application do you want to build?",
+                            "What main features should the system include?"
+                        ]
+                    }
 
     return {
         "clarification_needed": False
