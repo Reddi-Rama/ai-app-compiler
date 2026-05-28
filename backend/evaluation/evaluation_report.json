@@ -1,0 +1,68 @@
+{
+  "total_tests": 10,
+  "success_count": 10,
+  "failure_count": 0,
+  "success_rate": "100.00%",
+  "results": [
+    {
+      "prompt": "Build a CRM with login and payments",
+      "status_code": 200,
+      "latency_seconds": 2.06,
+      "success": true
+    },
+    {
+      "prompt": "Build an ecommerce platform with admin dashboard",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "success": true
+    },
+    {
+      "prompt": "Create a hospital management system",
+      "status_code": 200,
+      "latency_seconds": 0.0,
+      "success": true
+    },
+    {
+      "prompt": "Build a food delivery app",
+      "status_code": 200,
+      "latency_seconds": 0.01,
+      "success": true
+    },
+    {
+      "prompt": "Create a social media platform",
+      "status_code": 200,
+      "latency_seconds": 0.0,
+      "success": true
+    },
+    {
+      "prompt": "Build a platform",
+      "status_code": 200,
+      "latency_seconds": 0.0,
+      "success": true
+    },
+    {
+      "prompt": "Create app",
+      "status_code": 200,
+      "latency_seconds": 0.0,
+      "success": true
+    },
+    {
+      "prompt": "Build an AI SaaS with subscriptions",
+      "status_code": 200,
+      "latency_seconds": 0.0,
+      "success": true
+    },
+    {
+      "prompt": "Hospital portal with analytics",
+      "status_code": 200,
+      "latency_seconds": 0.0,
+      "success": true
+    },
+    {
+      "prompt": "Build fintech dashboard with login",
+      "status_code": 200,
+      "latency_seconds": 0.31,
+      "success": true
+    }
+  ]
+}
